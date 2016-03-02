@@ -1,5 +1,6 @@
 package ii_collections
 
+import syntax.properties.size
 import util.TODO
 
 fun todoTask24(): Nothing = TODO(
@@ -11,9 +12,10 @@ fun todoTask24(): Nothing = TODO(
         references = { c: Collection<String> -> _24_JavaCode().doSomethingStrangeWithCollection(c) }
 )
 
-fun doSomethingStrangeWithCollection(collection: Collection<String>): Collection<String>? {
-    val groupsByLength = collection.groupBy { s -> todoTask24() }
 
-    return groupsByLength.values.maxBy { group -> todoTask24() }
+fun doSomethingStrangeWithCollection(collection: Collection<String>): Collection<String>? {
+    val groupsByLength = collection.groupBy { s -> s.size }
+
+    return groupsByLength.values.maxBy { group -> group.size }
 }
 
